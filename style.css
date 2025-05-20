@@ -11,7 +11,12 @@
   input {
     size: 2em
   }
-  /* Style the main menu container */
+  form, form > input, from > textarea{
+    background-color: transparent !important;
+  }
+  textarea { 
+    background: transparent;
+  }
   nav {
     display: flex;
     background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
