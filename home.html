@@ -48,28 +48,30 @@
                     res += "<h3>"+beach.name+"</h3><p>"+beach.description+'</p>'; 
                     res += "</div>";
                 });
-            break;    
+                break;  
+
             case "country":
             case "countries":
                 console.log(data1.countries);               
                 data1.countries[Math.floor( Math.random() * 3 )].cities.forEach(function(c) {
                     res += '<div class="white"><img height="150" src="./'+ c.imageUrl + '"> ';             
-                    res += "<h3>"+c.name+"</h3><p>"+c.description+'</p>'; 
-                    res += "</div>";
+                    res += "<h3>"+c.name+"</h3><p>"+c.description+'</p>';
+                    
                 });
-            break;
+                break; 
+
             case "temple":
             case "temples":
                 console.log(data1.temples);               
-                data1.temples.forEach(function(t) {
+                data1.beaches.forEach(function(t) {
                     res += '<div class="white"><img src="./'+ t.imageUrl + '"> ';             
                     res += "<h3>"+t.name+"</h3><p>"+t.description+'</p>'; 
                     res += "</div>";
                 });
-            break; 
+                break; 
 
         }
-        console.log(res);
+        //console.log(res);
         document.getElementById('result').innerHTML = res;
     };
 
