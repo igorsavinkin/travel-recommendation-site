@@ -11,10 +11,10 @@
         <a href="./contact.html" id="contact">Contact Us </a>
         <a href="./about.html" id="home">About </a>
         <form id="form">
-        <input height="48" type="text" id="searchInput" placeholder="Enter a destination">  
-        &nbsp;<button id='btnSearch'>Search</button>
-        &nbsp;<button id='reset'>Reset</button>
+            <input height="48" type="text" id="searchInput" placeholder="Enter a destination">  
+            &nbsp;<button id='btnSearch'>Search</button>
         </form>    
+        &nbsp;<button id='reset' onclick="{ document.getElementById('result').innerHTML = '';}">Reset</button>
     </nav>
 
 <!-- Optional content -->
@@ -70,7 +70,7 @@
 
         }
         console.log(res);
-        let result = document.getElementById('result').innerHTML = res;
+        document.getElementById('result').innerHTML = res;
     };
 
 </script>
