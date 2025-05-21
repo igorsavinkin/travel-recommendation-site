@@ -52,12 +52,21 @@
             case "country":
             case "countries":
                 console.log(data1.countries);               
-                data1.countries[Math.ceil( Math.random() * 3  )].cities.forEach(function(c) {
-                    res += '<div class="white"><img src="./'+ c.imageUrl + '"> ';             
+                data1.countries[Math.floor( Math.random() * 3 )].cities.forEach(function(c) {
+                    res += '<div class="white"><img height="150" src="./'+ c.imageUrl + '"> ';             
                     res += "<h3>"+c.name+"</h3><p>"+c.description+'</p>'; 
                     res += "</div>";
                 });
             break;
+            case "temple":
+            case "temples":
+                console.log(data1.temples);               
+                data1.temples.forEach(function(t) {
+                    res += '<div class="white"><img src="./'+ t.imageUrl + '"> ';             
+                    res += "<h3>"+t.name+"</h3><p>"+t.description+'</p>'; 
+                    res += "</div>";
+                });
+            break; 
 
         }
         console.log(res);
