@@ -11,7 +11,7 @@
         <a href="./contact.html" id="contact">Contact Us </a>
         <a href="./about.html" id="home">About </a>
         <form id="form">
-        <input height="48" type="text" id="conditionInput" placeholder="Enter a destination">  
+        <input height="48" type="text" id="searchInput" placeholder="Enter a destination">  
         &nbsp;<button id='btnSearch'>Search</button>
         &nbsp;<button id='reset'>Reset</button>
         </form>    
@@ -22,16 +22,46 @@
   <h1>Welcome to Wanderlust Journeys</h1>
   <p>This is a site for you to search for bes ttravel destinations.</p>
 </div>
-
+<div id="result"> </div>
 </body>
 <script>
+    var data1;
     fetch('travel_recommendation_api.json')
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => { console.log(data); 
+                        data1=data;
+                    })
         .catch(error => console.error('Ошибка загрузки:', error));
     document.getElementById('form').addEventListener('submit', process );
     function process(event){
-        console.log('processing');
+        event.preventDefault();
+       // console.log('processing');
+        const searchInput = document.getElementById('searchInput').value.toLowerCase();
+        console.log('processing ' + searchInput);
+        var res='';
+        switch(searchInput){
+            case "beach":
+            case "beaches":
+                console.log(data1.beaches);               
+                data1.beaches.forEach(function(beach) {
+                    res += '<div class="white"><img src="./'+ beach.imageUrl + '"> ';             
+                    res += "<h3>"+beach.name+"</h3><p>"+beach.description+'</p>'; 
+                    res += "</div>";
+                });
+            break;    
+            case "country":
+            case "countries":
+                console.log(data1.countries);               
+                data1.countries[Math.ceil( Math.random() * 3  )].cities.forEach(function(c) {
+                    res += '<div class="white"><img src="./'+ c.imageUrl + '"> ';             
+                    res += "<h3>"+c.name+"</h3><p>"+c.description+'</p>'; 
+                    res += "</div>";
+                });
+            break;
+
+        }
+        console.log(res);
+        let result = document.getElementById('result').innerHTML = res;
     };
 
 </script>

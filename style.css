@@ -1,9 +1,9 @@
- /* Set the background image for the entire page */
   body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-image: url("./ny.jpeg"); /*'https://images.unsplash.com/photo-1507525428034-b723cf961d3e');*/
+    background-image: url("./ny.jpeg");  
+    background-repeat: repeat;
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -41,3 +41,6 @@
   nav a:hover {
     color: #ffd700;
   }
+  .white {
+   /* background-color: #fff;*/
+  } 
