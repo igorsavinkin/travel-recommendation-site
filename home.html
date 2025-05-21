@@ -10,11 +10,11 @@
     <nav>       
         <a href="./contact.html" id="contact">Contact Us </a>
         <a href="./about.html" id="home">About </a>
-        
+        <form id="form">
         <input height="48" type="text" id="conditionInput" placeholder="Enter a destination">  
         &nbsp;<button id='btnSearch'>Search</button>
         &nbsp;<button id='reset'>Reset</button>
-
+        </form>    
     </nav>
 
 <!-- Optional content -->
@@ -26,8 +26,13 @@
 </body>
 <script>
     fetch('travel_recommendation_api.json')
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error('Ошибка загрузки:', error));
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Ошибка загрузки:', error));
+    document.getElementById('form').addEventListener('submit', process );
+    function process(event){
+        console.log('processing');
+    };
+
 </script>
 </html>
